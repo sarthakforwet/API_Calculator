@@ -1,1 +1,1 @@
-A DataBase Management System project with the aim to maintain a database to store and calculate the API(Academic Progress Indicator) of faculties. This system has currently restricted to a specific University but with minor manipulations can be implemented as a generic API calculator.
+A DataBase Management System project with the aim to maintain a `Database` to store and calculate the `API(Academic Progress Indicator)` of faculties. This system has currently restricted to a `specific University` but with minor manipulations can be implemented as a generic API calculator.
