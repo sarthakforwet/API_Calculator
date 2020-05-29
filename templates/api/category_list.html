@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block body_block %}
+{% for category in category_list %}
+    <a href="{% url 'api:activity' category_id=category.id %}">{{ category }}</a><br>
+{% endfor %}
+{% endblock %}

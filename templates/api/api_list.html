@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block body_block %}
+{% for activity in activity_list %}
+    <a href="{% url 'api:activity_form' category_id=activity.stream.category_id nature_category_id=activity.id %}">{{ activity }}</a><br>
+{% endfor %}
+{% endblock %}
