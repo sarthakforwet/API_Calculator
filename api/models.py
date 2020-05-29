@@ -4,7 +4,7 @@ from django.db import models
 class Category(models.Model):
     category_name = models.CharField(max_length=200)
     def __str__(self):
-        return str(self.id)
+        return str(self.category_name)
 
 class CategoryStream(models.Model):
     category_id = models.ForeignKey(Category,on_delete=models.CASCADE)
@@ -12,7 +12,7 @@ class CategoryStream(models.Model):
     class Meta:
         unique_together = ('category_id', 'stream',)
     def __str__(self):
-        return str(self.id)
+        return str(self.stream)
 
 
 class Api(models.Model):
