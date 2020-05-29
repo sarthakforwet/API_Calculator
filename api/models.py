@@ -10,7 +10,9 @@ class CategoryStream(models.Model):
     category_id = models.ForeignKey(Category,on_delete=models.CASCADE)
     stream = models.CharField(max_length=500)
     class Meta:
-        unique_together = ('category_id', 'stream',)
+        constraints = [
+            models.UniqueConstraint(fields=['category_id', 'stream'],name='category_stream')
+        ]
     def __str__(self):
         return str(self.stream)
 
@@ -22,6 +24,8 @@ class Api(models.Model):
     self_assesment = models.PositiveSmallIntegerField()
     verified_api_score = models.PositiveSmallIntegerField()
     class Meta:
-        unique_together = ('stream', 'nature_of_activity',)
+        constraints = [
+            models.UniqueConstraint(fields=['nature_of_activity', 'stream'],name='api')
+        ]
     def __str__(self):
         return str(self.nature_of_activity)
