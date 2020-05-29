@@ -3,10 +3,15 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     category_name = models.CharField(max_length=200)
+    def __str__(self):
+        return str(self.id)
 
 class CategoryStream(models.Model):
     category_id = models.ForeignKey(Category,on_delete=models.CASCADE)
-    stream = models.CharField(max_length=500)
+    stream = models.CharField(max_length=500,unique=True)
+    def __str__(self):
+        return str(self.id)
+
 
 class Api(models.Model):
     stream = models.ForeignKey(CategoryStream,on_delete=models.CASCADE)
@@ -14,3 +19,5 @@ class Api(models.Model):
     max_score = models.PositiveSmallIntegerField()
     self_assesment = models.PositiveSmallIntegerField()
     verified_api_score = models.PositiveSmallIntegerField()
+    def __str__(self):
+        return str(self.nature_of_activity)
