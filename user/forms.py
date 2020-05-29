@@ -2,6 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
+from user.models import FacultyProfile
 
 class FacultyResgistrationForm(ModelForm):
     class Meta:
@@ -30,3 +31,12 @@ class MyAuthForm(AuthenticationForm):
         self.fields['username'].label = False
         self.fields['password'].widget = forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Password'}) 
         self.fields['password'].label = False
+
+class FacultyProfileForm(ModelForm):
+    class Meta:
+        model = FacultyProfile
+        fields = ['stream']
+        # def __init__(self, *args, **kwargs):
+        #     super(FacultyProfileForm, self).__init__(*args, **kwargs)
+        #     self.fields['stream'].widget = forms.Select(attrs={'class': 'form-control', 'empty_label': 'Choose Stream'})
+        #     self.fields['stream'].label = False

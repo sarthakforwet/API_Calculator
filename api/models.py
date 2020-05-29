@@ -21,11 +21,12 @@ class Api(models.Model):
     stream = models.ForeignKey(CategoryStream,on_delete=models.CASCADE)
     nature_of_activity = models.CharField(max_length=750)
     max_score = models.PositiveSmallIntegerField()
-    self_assesment = models.PositiveSmallIntegerField(default=None,null=True,blank=True)
-    verified_api_score = models.PositiveSmallIntegerField(default=None,null=True,blank=True)
+    # self_assesment = models.PositiveSmallIntegerField(default=None,null=True,blank=True)
+    # verified_api_score = models.PositiveSmallIntegerField(default=None,null=True,blank=True)
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['nature_of_activity', 'stream'],name='api')
         ]
     def __str__(self):
         return str(self.nature_of_activity)
+
