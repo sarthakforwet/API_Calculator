@@ -29,11 +29,6 @@ class Api(models.Model):
 
 class FacultyProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    # stream_choices = [
-    #     ('', '----'),
-    #     ('FOLA/H/SS/L/PEM','Faculties of Languages Arts/Humanities/Social Sciences/Library/Physical education/Management'),
-    #     ('E/A/VS/S/MS','Engineering/Agriculture/Veterinary Science/Sciences/Medical Sciences')
-    # ]
     stream = models.ForeignKey(CategoryStream,on_delete=models.CASCADE)
     def __str__(self):
         return str(self.user.username)

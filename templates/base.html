@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-sm bg-light">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'api:login' %}">Login</a>
+                <a class="nav-link" href="{% if user.is_authenticated %} {% url 'api:logout' %} {% else %} {% url 'api:login' %} {% endif %}">{% if user.is_authenticated %} Logout {% else %} Login {% endif %}</a>
             </li>
             <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Logout</a>
@@ -24,11 +24,16 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'api:register' %}">Register</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'api:category' %}">Add Score</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'api:list_view' %}">Update Score</a>
+            </li>
         </ul>
     </nav>
     <br>
     {% block body_block %} {% endblock %}
-
 </body>
 
 </html>

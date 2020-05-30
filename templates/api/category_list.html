@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block body_block %}
-{% for category in category_list %}
-    <a href="{% url 'api:activity' category_id=category.id %}">{{ category }}</a><br>
-{% endfor %}
+<div class="container-fluid">
+    <div class="row">
+        {% for category in category_list %}
+        <div class="col-xl-6">{{ category }}</div>
+        <a href="{% url 'api:activity' category_id=category.id %}" class="col-xl-6">View Category</a>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
