@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body_block %}
+<div class="container-fluid">
+    {% if message %}
+    <div>{{ message }}</div>
+    {% endif %}
+    <div class="row">
+        {% for activity in activity_list %}
+        
+            <div class="col-xl-6"><b>o-> </b>{{ activity }}</div>
+        <a href="{% url 'api:activity_form' category_id=activity.stream.category_id nature_category_id=activity.id %}"
+            class="col-xl-6">Add Self Assesment Score</a><br>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
