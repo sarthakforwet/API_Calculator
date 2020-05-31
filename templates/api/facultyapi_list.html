@@ -2,10 +2,18 @@
 {% block body_block %}
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row"">
+        <div class="col-xl-1"></div>
+        <div class="col-xl-6">Nature of Activity</div>
+        <div class="col-xl-3">Self Assesment Score</div>
+        <div class="col-xl-2"></div>
+        <div class="col-xl-12"><br></div>
         {% for item in list %}
+            <div class="col-xl-1"></div>
             <div class="col-xl-6">{{ item.nature_of_activity }}</div>
-            <a href="{% url 'api:update' pk=item.id %}" class="col-xl-6">Update</a>
+            <div class="col-xl-3">{{ item.self_assesment }}</div>
+            <a href="{% url 'api:update' pk=item.id %}" class="col-xl-2">Update</a>
+
         {% endfor %}
     </div>
 </div>
